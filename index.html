@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Movie App</title>
+  <script src="node_modules/jquery/dist/jquery.js"></script>
+  <script src="node_modules/underscore/underscore.js"></script>
+  <script src="node_modules/backbone/backbone.js"></script>
+</head>
+<body>
+  <div id="app">
+
+  </div>
+
+
+  <script src="src/models/movie.js"></script>
+  <script src="src/collections/movies.js"></script>
+  <script src="src/collections/movies.js"></script>
+  <script src="src/lib/templateUrl.js"></script>
+
+  <script src="src/views/app.js"></script>
+  <script src="src/views/movieList.js"></script>
+  <script src="src/views/movieListEntry.js"></script>
+  <script src="src/views/titleBar.js"></script>
+  <script src="src/data/movieData.js"></script>
+
+  <script>
+    backboneReady(() => {
+      new AppView();
+    });
+  </script>
+
+
+
+
+</body>
+</html>
