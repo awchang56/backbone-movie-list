@@ -2,11 +2,30 @@ var Movies = Backbone.Collection.extend({
 
   model: Movie,
 
-  addMovie: function(title) {
+  parse: function(response) {
+    console.log('response inside parse: ', response);
+    return response;
+  },
+
+  addMovie: function() {
     var movie = {
-      "title": $('.add-movie-field').val()
+      "show_title": $('.add-movie-field').val()
     }
     this.add(movie);
+  },
+
+  searchAPI: function(query) {
+    console.log('search called on: ', query);
+    this.fetch({
+      url: 'http://netflixroulette.net/api/api.php?title=' + query,
+      remove: false,
+      success: function(data) {
+        console.log('return success data', data);
+      },
+      error: function(data) {
+        console.log('return error data', data);
+      }
+    })
   },
 
   toggleDisplay(isWatched) {
@@ -14,12 +33,10 @@ var Movies = Backbone.Collection.extend({
       var filtered = this.filter(movie => {
           return movie.get('watched') === true;
         });
-      console.log('watched is true: ', filtered);
     } else {
       var filtered = this.filter(movie => {
         return movie.get('watched') === false;
       });
-      console.log('watched is false: ', filtered);
     }
     this.trigger('toggle', filtered);
 
@@ -27,7 +44,7 @@ var Movies = Backbone.Collection.extend({
 
   search: function(query) {
     var filtered = this.filter(movie => {
-      return movie.get('title').toLowerCase().includes(query.toLowerCase());
+      return movie.get('show_title').toLowerCase().includes(query.toLowerCase());
     });
     if (filtered.length) {
       this.trigger('toggle', filtered);

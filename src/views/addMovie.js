@@ -9,12 +9,10 @@ var AddMovieView = Backbone.View.extend({
   },
 
   handleAdd: function() {
-    if ($('.add-movie-field').val()) {
-      this.collection.add(
-        {
-          "title": $('.add-movie-field').val()
-        }
-      );
+    var query = $('.add-movie-field').val();
+    if (query) {
+      console.log('query: ', query);
+      this.collection.searchAPI(query);
       $('.add-movie-field').val('');
     }
 

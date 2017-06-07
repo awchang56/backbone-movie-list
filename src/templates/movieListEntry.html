@@ -1,3 +1,11 @@
 <li class="movie-list-entry">
-  <%= title %><button class="toggle-watched">Watched</button>
+  <%= show_title %>
 </li>
+  <ul class="movie-details hidden">
+    <li><span>Released:</span> <%= release_year %></li>
+    <li><span>Runtime:</span> <%= runtime %></li>
+    <li><span>Rating:</span> <%= show_title %></li>
+    <li><span>Summary:</span> <%= summary %></li>
+    <li><button class="toggle-watched">Watched</button></li>
+    <li><img src=<%= poster %> > </li>
+  </ul>
