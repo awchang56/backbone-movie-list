@@ -11,7 +11,6 @@ var AddMovieView = Backbone.View.extend({
   handleAdd: function() {
     var query = $('.add-movie-field').val();
     if (query) {
-      console.log('query: ', query);
       this.collection.searchAPI(query);
       $('.add-movie-field').val('');
     }

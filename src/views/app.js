@@ -10,7 +10,7 @@ var AppView = Backbone.View.extend({
   initialize: function() {
     // this.watchedMovies = new Movies(watchedMovies);
     // this.unWatchedMovies = new Movies(unWatchedMovies);
-    this.movies = new Movies(movieData)
+    this.movies = new Movies(movieData);
     this.render();
   },
 

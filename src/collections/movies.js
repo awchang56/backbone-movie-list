@@ -7,13 +7,6 @@ var Movies = Backbone.Collection.extend({
     return response;
   },
 
-  addMovie: function() {
-    var movie = {
-      "show_title": $('.add-movie-field').val()
-    }
-    this.add(movie);
-  },
-
   searchAPI: function(query) {
     console.log('search called on: ', query);
     this.fetch({
@@ -24,6 +17,7 @@ var Movies = Backbone.Collection.extend({
       },
       error: function(data) {
         console.log('return error data', data);
+        alert('movie not found');
       }
     })
   },
